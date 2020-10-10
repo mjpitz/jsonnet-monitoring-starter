@@ -6,8 +6,13 @@ alerts:
 
 dashboards:
 	@mkdir -p out/dashboards
-	jsonnet -J vendor -m out/dashboards pkg/dashboards.jsonnet
+	jsonnet -J vendor -m out pkg/dashboards.jsonnet
 
 rules:
 	@mkdir -p out
 	jsonnet -J vendor -S pkg/rules.jsonnet > out/prometheus_rules.yaml
+
+test:
+	promtool check rules out/prometheus_rules.yaml
+	promtool check rules out/prometheus_alerts.yaml
+	# promtool test rules tests.yaml

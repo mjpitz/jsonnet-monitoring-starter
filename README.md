@@ -1,7 +1,7 @@
 # jsonnet-monitoring-starter
 
 This project is a [Jsonnet] starter kit used to scaffold monitoring with [Prometheus] and [Grafana].
-I put this reference together after spending several days trying to wrap my head around projects using jsonnet.
+I put this reference together after spending several days trying to wrap my head around projects using Jsonnet.
 It aims to simplify the development of monitoring for open source projects.
 The current starter supports generating:
 
@@ -24,22 +24,37 @@ The current starter supports generating:
 3. Update `mixin.libsonnet` to import your applications
 4. Add dashboards, rules, and alerts for each application
 
-## Generating config files
+## Generating configuration files
 
 You can easily generate the configuration files, but first you'll need a few tools.
 
-```bash
+```sh
 $ go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
 $ brew install jsonnet
 ```
 
 Once you have the proper tooling, you'll want to install the project dependencies.
 
-```bash
+```sh
 $ jb install
 ```
 
 Finally, run `make` to generate the configuration files.
+Files will be written to the `out` directory.
+
+```sh
+$ tree out
+out
+├── dashboard-template-grafana.json
+├── prometheus_alerts.yaml
+└── prometheus_rules.yaml
+
+1 directory, 3 files
+```
+
+To simplify the process, this project comes with a pre-built [GitHub action](./.github/workflows/branch.yaml).
+When you push a branch or pull request, changes are automatically lint, built, and test.
+When you push a tag to the repository, the contents of `out` are uploaded as assets to the release.
 
 ## Inspiration / References
 
