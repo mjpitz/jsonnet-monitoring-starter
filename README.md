@@ -24,6 +24,16 @@ The current starter supports generating:
 3. Update `mixin.libsonnet` to import your applications
 4. Add dashboards, rules, and alerts for each application
 
+_Some quick tips:_
+
+* Don't try and knock it all out at once.
+  It's intended to be an iterative process.
+  So start small, and build up.
+
+* If you're looking for idea's, start by digging into a few of the projects below.
+  While jsonnet solves the problem, troubleshooting it can be difficult.
+  Building from existing examples really helps.
+
 ## Generating configuration files
 
 You can easily generate the configuration files, but first you'll need a few tools.
@@ -54,7 +64,7 @@ out
 
 To simplify the process, this project comes with a pre-built [GitHub action](./.github/workflows/branch.yaml).
 When you push a branch or pull request, changes are automatically lint, built, and test.
-When you push a tag to the repository, the contents of `out` are uploaded as assets to the release.
+When you push a tag, the contents of `out` are uploaded as assets to the release.
 
 ## Inspiration / References
 
