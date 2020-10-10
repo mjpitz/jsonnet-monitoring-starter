@@ -1,3 +1,3 @@
-# jsonnet-template
+# jsonnet-starter
 
 Here be dragons
